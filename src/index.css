@@ -1,0 +1,326 @@
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+
+ /* STREETWEAR BRAND DESIGN SYSTEM - Black + Orange Theme */
+
+ @layer base {
+   :root {
+     /* Premium Light Theme - Vintage Streetwear Aesthetic */
+     --background: 50 12% 94%;
+     /* #f2f1ed Cream */
+     --foreground: 110 71% 14%;
+     /* Deep Green */
+
+     --card: 0 0% 100%;
+     --card-foreground: 110 71% 14%;
+
+     --popover: 50 12% 94%;
+     --popover-foreground: 110 71% 14%;
+
+     /* Primary - Deep Vintage Green #123c0a */
+     --primary: 110 71% 14%;
+     --primary-foreground: 50 12% 94%;
+
+     /* Secondary - Very Dark Green-Black */
+     --secondary: 110 71% 5%;
+     --secondary-foreground: 50 12% 94%;
+
+     /* Muted */
+     --muted: 50 12% 88%;
+     --muted-foreground: 110 71% 30%;
+
+     /* Accent - Green Glow */
+     --accent: 110 71% 14%;
+     --accent-foreground: 50 12% 94%;
+
+     --destructive: 0 84% 60%;
+     --destructive-foreground: 50 12% 94%;
+
+     --border: 110 71% 14% / 0.15;
+     --input: 50 12% 90%;
+     --ring: 110 71% 14%;
+
+     --radius: 1.5rem;
+
+     /* Custom Brand Colors */
+     --brand-green: 110 71% 14%;
+     --brand-cream: 50 12% 94%;
+     --brand-black: 0 0% 0%;
+     --brand-dark: 110 71% 5%;
+     --brand-gray: 0 0% 25%;
+     --brand-light: 50 12% 94%;
+
+     /* Gradients */
+     --gradient-brand: linear-gradient(135deg, hsl(110 71% 14%), hsl(110 71% 25%));
+     --gradient-dark: linear-gradient(180deg, hsl(110 71% 10%), hsl(110 71% 5%));
+     --gradient-glow: radial-gradient(circle at center, hsl(110 71% 14% / 0.1), transparent 70%);
+
+     /* Shadows */
+     --shadow-glow: 0 0 40px hsl(110 71% 14% / 0.2);
+     --shadow-card: 0 10px 40px hsl(110 71% 14% / 0.08);
+     --shadow-elevated: 0 20px 60px hsl(110 71% 14% / 0.12);
+
+     /* Sidebar */
+     --sidebar-background: 50 12% 96%;
+     --sidebar-foreground: 110 71% 14%;
+     --sidebar-primary: 110 71% 14%;
+     --sidebar-primary-foreground: 50 12% 94%;
+     --sidebar-accent: 50 12% 90%;
+     --sidebar-accent-foreground: 110 71% 14%;
+     --sidebar-border: 110 71% 14% / 0.1;
+     --sidebar-ring: 110 71% 14%;
+   }
+ }
+
+ @layer base {
+   * {
+     @apply border-border;
+   }
+
+   html {
+     scroll-behavior: smooth;
+   }
+
+   body {
+     @apply bg-background text-foreground antialiased;
+     font-family: 'Poppins', 'Vazirmatn', sans-serif;
+   }
+
+   /* Typography */
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6 {
+     font-family: 'Playfair Display', 'Vazirmatn', serif;
+     @apply font-bold tracking-tight;
+   }
+
+   .font-display {
+     font-family: 'Playfair Display', 'Vazirmatn', serif;
+   }
+
+   .font-body {
+     font-family: 'Poppins', 'Vazirmatn', sans-serif;
+   }
+
+   .font-persian {
+     font-family: 'Vazirmatn', sans-serif;
+   }
+ }
+
+ @layer components {
+
+   /* Hero Typography */
+   .hero-title {
+     @apply text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black uppercase tracking-tighter leading-[0.9];
+     text-shadow: 0 4px 30px hsl(110 71% 14% / 0.1);
+   }
+
+   .hero-subtitle {
+     @apply text-lg md:text-xl font-persian text-muted-foreground tracking-wide;
+   }
+
+   /* Brand Button Styles */
+   .btn-primary {
+     @apply bg-brand-green text-white px-8 py-4 font-semibold uppercase tracking-wider;
+     @apply transition-all duration-300 ease-out;
+     @apply hover:shadow-[0_0_30px_hsl(24_100%_50%_/_0.4)] hover:scale-105;
+     @apply active:scale-95;
+   }
+
+   .btn-outline {
+     @apply border-2 border-foreground text-foreground px-8 py-4 font-semibold uppercase tracking-wider;
+     @apply transition-all duration-300 ease-out bg-transparent;
+     @apply hover:bg-foreground hover:text-background;
+   }
+
+   /* Product Card Styles */
+   .product-card {
+     @apply relative overflow-hidden bg-card rounded-lg;
+     @apply transition-all duration-500 ease-out;
+     @apply hover:shadow-[0_20px_60px_hsl(0_0%_0%_/_0.6)];
+   }
+
+   .product-card:hover .product-image {
+     @apply scale-110;
+   }
+
+   .product-card:hover .product-overlay {
+     @apply opacity-100;
+   }
+
+   .product-image {
+     @apply w-full h-full object-cover transition-transform duration-700 ease-out;
+   }
+
+   .product-overlay {
+     @apply absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent;
+     @apply opacity-0 transition-opacity duration-500;
+   }
+
+   /* Sticky Header */
+   .header-sticky {
+     @apply fixed top-0 left-0 right-0 z-50;
+     @apply bg-background/80 backdrop-blur-xl;
+     @apply border-b border-border/50;
+     @apply transition-all duration-300;
+   }
+
+   .header-transparent {
+     @apply fixed top-0 left-0 right-0 z-50;
+     @apply bg-transparent;
+     @apply transition-all duration-300;
+   }
+
+   /* Glow Effects */
+   .glow-orange {
+     box-shadow: 0 0 40px hsl(24 100% 50% / 0.3);
+   }
+
+   .text-glow {
+     text-shadow: 0 0 30px hsl(24 100% 50% / 0.5);
+   }
+
+   /* Animated Underline */
+   .link-underline {
+     @apply relative;
+   }
+
+   .link-underline::after {
+     content: '';
+     @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brand-green;
+     @apply transition-all duration-300;
+   }
+
+   .link-underline:hover::after {
+     @apply w-full;
+   }
+
+   /* Badge Styles */
+   .badge-sale {
+     @apply absolute top-4 right-4 bg-brand-green text-white;
+     @apply px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full;
+   }
+
+   .badge-new {
+     @apply absolute top-4 left-4 bg-foreground text-background;
+     @apply px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full;
+   }
+
+   /* Section Styles */
+   .section-padding {
+     @apply py-16 md:py-24 lg:py-32;
+   }
+
+   .container-custom {
+     @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+   }
+ }
+
+ @layer utilities {
+
+   /* Custom Animations */
+   .animate-float {
+     animation: float 6s ease-in-out infinite;
+   }
+
+   .animate-pulse-glow {
+     animation: pulse-glow 2s ease-in-out infinite;
+   }
+
+   .animate-slide-up {
+     animation: slide-up 0.6s ease-out;
+   }
+
+   .animate-fade-in-up {
+     animation: fade-in-up 0.8s ease-out;
+   }
+
+   @keyframes float {
+
+     0%,
+     100% {
+       transform: translateY(0);
+     }
+
+     50% {
+       transform: translateY(-10px);
+     }
+   }
+
+   @keyframes pulse-glow {
+
+     0%,
+     100% {
+       box-shadow: 0 0 20px hsl(24 100% 50% / 0.3);
+     }
+
+     50% {
+       box-shadow: 0 0 40px hsl(24 100% 50% / 0.5);
+     }
+   }
+
+   @keyframes slide-up {
+     from {
+       transform: translateY(20px);
+       opacity: 0;
+     }
+
+     to {
+       transform: translateY(0);
+       opacity: 1;
+     }
+   }
+
+   @keyframes fade-in-up {
+     from {
+       transform: translateY(40px);
+       opacity: 0;
+     }
+
+     to {
+       transform: translateY(0);
+       opacity: 1;
+     }
+   }
+
+   @keyframes shimmer {
+     0% {
+       background-position: 200% 0;
+     }
+
+     100% {
+       background-position: -200% 0;
+     }
+   }
+
+   /* Text Gradients */
+   .text-gradient {
+     @apply bg-clip-text text-transparent;
+     background-image: linear-gradient(135deg, hsl(110 71% 14%), hsl(110 71% 40%));
+   }
+
+   /* Scrollbar Styling */
+   ::-webkit-scrollbar {
+     width: 8px;
+   }
+
+   ::-webkit-scrollbar-track {
+     background: hsl(50 12% 94%);
+   }
+
+   ::-webkit-scrollbar-thumb {
+     background: hsl(110 71% 14% / 0.2);
+     border-radius: 4px;
+   }
+
+   ::-webkit-scrollbar-thumb:hover {
+     background: hsl(110 71% 14%);
+   }
+ }
