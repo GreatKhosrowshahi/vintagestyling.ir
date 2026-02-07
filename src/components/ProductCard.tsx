@@ -39,7 +39,7 @@ const ProductCard = ({ id, name, description, price, images, category }: Product
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onClick={() => navigate(`/product/${id}`)}
-      className={`group relative bg-white/50 backdrop-blur-xl rounded-2xl overflow-hidden shadow-xl border border-brand-green/10 hover:border-brand-green transition-all duration-500 cursor-pointer flex flex-col`}
+      className={`group relative bg-white/50 backdrop-blur-xl rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-brand-green/10 hover:border-brand-green transition-all duration-500 cursor-pointer flex flex-col`}
     >
       {/* Category Badge - Now on the right for variety */}
       {category && (
@@ -147,7 +147,7 @@ const ProductCard = ({ id, name, description, price, images, category }: Product
 
             <motion.button
               whileTap={{ scale: 0.94 }}
-              className="flex items-center justify-center w-8 h-8 md:w-auto md:px-5 md:h-12 rounded-lg md:rounded-xl bg-brand-green text-white hover:bg-brand-dark transition-all duration-300 shadow-lg"
+              className="flex items-center justify-center w-8 h-8 md:w-auto md:px-5 md:h-12 rounded-lg md:rounded-xl bg-brand-green text-white hover:bg-brand-dark transition-all duration-300 shadow-md hover:shadow-lg"
               onClick={handleAddToCart}
             >
               <ShoppingCart className="w-4 h-4" />
